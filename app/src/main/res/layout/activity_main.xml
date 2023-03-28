@@ -6,13 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alignmentMode="alignMargins"
+        android:columnCount="1"
+        android:rowCount="4">
+
+        <Button
+            android:id="@+id/BtnNouvelleEstimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bouton_estimation"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="250px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/BtnComparer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bouton_compare"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="250px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BtnNouvelleEstimation" />
+
+        <Button
+            android:id="@+id/BtnHistorique"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bouton_historique"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="250px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button11" />
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
