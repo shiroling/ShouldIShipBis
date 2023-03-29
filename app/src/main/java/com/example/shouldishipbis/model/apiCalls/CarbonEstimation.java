@@ -1,4 +1,4 @@
-package com.example.shouldishipbis.model;
+package com.example.shouldishipbis.model.apiCalls;
 
 import android.os.Build;
 
@@ -29,7 +29,6 @@ public class CarbonEstimation {
     private double carbonLb;
     private double carbonKg;
     private double carbonMt;
-
     public CarbonEstimation() {
     }
 
@@ -141,7 +140,7 @@ public class CarbonEstimation {
         return estimationDate;
     }
 
-    public void setEstimationDate(String estimationDate) throws ParseException {
+    public void setEstimationDate(String estimationDate) {
         this.estimationDate = estimationDate;
     }
 
