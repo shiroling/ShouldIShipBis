@@ -4,11 +4,23 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
+
+import com.example.shouldishipbis.model.apiCalls.CarbonEstimation;
+import com.example.shouldishipbis.model.apiCalls.DistanceUnit;
+import com.example.shouldishipbis.model.apiCalls.Transport;
+import com.example.shouldishipbis.model.apiCalls.WeightUnit;
+import com.example.shouldishipbis.model.localDatabase.EstimateDAO;
+import com.example.shouldishipbis.model.localDatabase.EstimateDatabaseHelper;
+
+import java.text.ParseException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button boutonHistorique = findViewById(R.id.BtnHistorique);
         boutonHistorique.setOnClickListener(v -> goToHistorique());
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
