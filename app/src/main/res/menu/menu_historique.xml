@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_quitter"
+        app:showAsAction="always"
+        android:title="@string/menu_quitter" />
+
+    <item
+        android:id="@+id/menu_main"
+        app:showAsAction="collapseActionView"
+        android:title="@string/bouton_main" />
+
+    <item
+        android:id="@+id/menu_estimation"
+        app:showAsAction="collapseActionView"
+        android:title="@string/bouton_estimation" />
+
+    <item
+        android:id="@+id/menu_main"
+        app:showAsAction="collapseActionView"
+        android:title="@string/bouton_main" />
+
+</menu>
