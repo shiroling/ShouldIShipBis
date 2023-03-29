@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
-        Button boutonEstimation = findViewById(R.id.BtnNouvelleEstimation);
+        Button boutonEstimation = findViewById(R.id.BtnEstimations);
         boutonEstimation.setOnClickListener(v -> goToEstimation());
 
         Button boutonComparer = findViewById(R.id.BtnComparer);
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToEstimation(){
-        Intent intent = new Intent(MainActivity.this, FormActivity.class);
+        Intent intent = new Intent(MainActivity.this, EstimationActivity.class);
         startActivity(intent);
     }
 

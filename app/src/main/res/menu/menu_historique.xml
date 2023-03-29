@@ -15,10 +15,10 @@
     <item
         android:id="@+id/menu_estimation"
         app:showAsAction="collapseActionView"
-        android:title="@string/bouton_estimation" />
+        android:title="@string/bouton_estimations" />
 
     <item
-        android:id="@+id/menu_main"
+        android:id="@+id/menu_comparer"
         app:showAsAction="collapseActionView"
         android:title="@string/bouton_main" />
 

@@ -9,7 +9,7 @@
     <item
         android:id="@+id/menu_estimation"
         app:showAsAction="collapseActionView"
-        android:title="@string/bouton_estimation" />
+        android:title="@string/bouton_nouvelle_estimation" />
     <item
         android:id="@+id/menu_comparer"
         app:showAsAction="collapseActionView"

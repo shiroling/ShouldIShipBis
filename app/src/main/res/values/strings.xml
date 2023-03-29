@@ -14,7 +14,7 @@
     <string name="title_activity_result">ResultActivity</string>
     <string name="title_activity_compare">CompareActivity</string>
     <string name="bouton_historique">Historique</string>
-    <string name="bouton_estimation">Nouvelle estimation</string>
+    <string name="bouton_nouvelle_estimation">Nouvelle estimation</string>
     <string name="bouton_compare">Comparer</string>
     <string name="menu_quitter">Quitter</string>
     <string name="label_poids">Poids</string>
@@ -23,4 +23,10 @@
 
     <string name="large_text">FEUR</string>
     <string name="bouton_main">Accueil</string>
+    <string name="bouton_estimer">Estimer</string>
+    <string name="radio_avion">Avion</string>
+    <string name="radio_camion">Camion</string>
+    <string name="radio_train">Train</string>
+    <string name="radio_bateau">Bateau</string>
+    <string name="bouton_estimations">Estimations</string>
 </resources>

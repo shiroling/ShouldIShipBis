@@ -1,20 +1,44 @@
 package com.example.shouldishipbis;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EstimationActivity extends AppCompatActivity {
 
+    private final int REQ_CODE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_estimation);
+        Button boutonEstimer = findViewById(R.id.button_nouvelle_estimation);
+        boutonEstimer.setOnClickListener(v -> goToForm());
+    }
+
+    private void goToForm() {
+        Intent intent = new Intent(EstimationActivity.this, FormActivity.class);
+        startActivityForResult(intent, REQ_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQ_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                // Afficher les résultats de l'estimation
+            } else {
+                // si erreur
+            }
+        }
     }
 
     @Override
@@ -30,8 +54,8 @@ public class EstimationActivity extends AppCompatActivity {
             case R.id.menu_quitter:
                 System.exit(0);
                 break;
-            case R.id.menu_estimation:
-                goToEstimation();
+            case R.id.menu_main:
+                goToMain();
                 break;
             case R.id.menu_comparer:
                 goToComparer();
@@ -45,8 +69,8 @@ public class EstimationActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToEstimation(){
-        Intent intent = new Intent(EstimationActivity.this, FormActivity.class);
+    public void goToMain(){
+        Intent intent = new Intent(EstimationActivity.this, MainActivity.class);
         startActivity(intent);
     }
 
