@@ -31,4 +31,8 @@
     <string name="bouton_estimations">Estimations</string>
     <string name="hint_poids">Poids du paquet</string>
     <string name="hint_distance">Distance à parcourir</string>
+    <string name="label_date">Date de l\'estimation : </string>
+    <string name="label_carbone">"Masse (en kg) de carbone émis : "</string>
+    <string name="landscape_mode_off">Cette page fonctionne mieux en mode paysage</string>
+    <string name="landscape_mode_on">Bravoo !!</string>
 </resources>

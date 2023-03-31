@@ -34,18 +34,12 @@ public class EstimationActivity extends AppCompatActivity {
         if(requestCode == REQ_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 String caStr = data.getStringExtra("ca");
+                String dateStr = caStr.split(",")[6].split("=")[1];
+                String carboneStr = caStr.split(",")[8].split("=")[1];
                 TextView date = findViewById(R.id.text_date);
                 TextView carbone = findViewById(R.id.text_carbone);
-                try {
-                    JSONObject jsonCa = new JSONObject(caStr);
-                    jsonCa.getJSONObject("carbonkg");
-                    String dateStr = jsonCa.getJSONObject("EstimationDate").toString();
-                    String carboneStr = jsonCa.getJSONObject("carbonkg").toString();
-                    date.setText(dateStr);
-                    carbone.setText(carboneStr);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                date.setText(dateStr);
+                carbone.setText(carboneStr);
             } else {
                 // si erreur
             }
