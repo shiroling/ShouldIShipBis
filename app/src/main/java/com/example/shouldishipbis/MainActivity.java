@@ -54,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 WeightUnit.KILOGRAMS,
                 DistanceUnit.KILOMETERS
             );
-
-        // Print CarbonEstimation instance
-        Log.d("CarbonEstimation", carbonEstimation.toString());
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
