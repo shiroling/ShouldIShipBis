@@ -1,5 +1,9 @@
 package com.example.shouldishipbis.model.apiCalls;
 
+import android.content.Context;
+
+import com.example.shouldishipbis.model.localDatabase.EstimateDAO;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -25,7 +29,7 @@ public class CarbonEstimation {
     }
 
     //@RequiresApi(api = Build.VERSION_CODES.O)
-    public CarbonEstimation requestEstimation(Transport transport, float weight, float distance, WeightUnit weightUnit, DistanceUnit distanceUnit) /*throws IOException, JSONException, ParseException */{
+    public CarbonEstimation requestEstimation(Context context, Transport transport, float weight, float distance, WeightUnit weightUnit, DistanceUnit distanceUnit) /*throws IOException, JSONException, ParseException */{
         this.transport = transport;
         this.weight = weight;
         this.distance = distance;
@@ -84,6 +88,9 @@ public class CarbonEstimation {
         setCarbonLb(25 + Math.random() * (42 - 25));
         setCarbonKg(0.05 + Math.random() * (10 - 0.05));
         setCarbonMt(0.005 + Math.random() * (400 - 0.005));
+        EstimateDAO eDao = new EstimateDAO(context);
+        eDao.insertEstimate(this);
+
         return this;
     }
     public String getId() {

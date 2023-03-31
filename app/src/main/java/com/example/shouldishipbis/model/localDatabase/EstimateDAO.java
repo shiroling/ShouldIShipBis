@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.shouldishipbis.model.apiCalls.CarbonEstimation;
 import com.example.shouldishipbis.model.apiCalls.DistanceUnit;
@@ -16,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EstimateDAO {
-
     private final SQLiteOpenHelper dbHelper;
 
     public EstimateDAO(Context context) {
@@ -38,6 +38,7 @@ public class EstimateDAO {
         values.put("carbon_mt", estimate.getCarbonMt());
         db.insert("carbon_estimations", null, values);
         db.close();
+        Log.d("DB-DAO", "inséré : "+estimate);
     }
 
     public List<CarbonEstimation> getAllEstimates() throws ParseException {

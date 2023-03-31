@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Call requestEstimation method
         carbonEstimation.requestEstimation(
+                this,
                 Transport.SHIP,
                 100,
                 1000,
