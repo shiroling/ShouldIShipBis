@@ -6,79 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".FormActivity">
 
-    <TextView
-        android:id="@+id/label_poids"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="@string/label_poids"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/edit_text_poids"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Poids du paquet"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/label_distance"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
-        android:text="@string/label_distance"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edit_text_distance"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        android:hint="Distance à parcourir"
-        app:layout_constraintTop_toBottomOf="@+id/label_distance" />
-
-    <TextView
-        android:id="@+id/label_transport"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/label_transport" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RadioButton
-            android:id="@+id/radio_avion"
+        <TextView
+            android:id="@+id/label_poids"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/radio_avion" />
+            android:text="@string/label_poids" />
 
-        <RadioButton
-            android:id="@+id/radio_camion"
+        <EditText
+            android:id="@+id/edit_text_poids"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/radio_camion" />
+            android:hint="@string/hint_poids"
+            android:inputType="number" />
 
-        <RadioButton
-            android:id="@+id/radio_train"
+        <TextView
+            android:id="@+id/label_distance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/radio_train" />
+            android:text="@string/label_distance" />
 
-        <RadioButton
-            android:id="@+id/radio_bateau"
+        <EditText
+            android:id="@+id/edit_text_distance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/radio_bateau" />
+            android:hint="@string/hint_distance"
+            android:inputType="number"/>
 
-    </RadioGroup>
+        <TextView
+            android:id="@+id/label_transport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_transport" />
+
+        <RadioGroup
+            android:id="@+id/radio_transport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radio_avion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_avion" />
+
+            <RadioButton
+                android:id="@+id/radio_camion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_camion" />
+
+            <RadioButton
+                android:id="@+id/radio_train"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_train" />
+
+            <RadioButton
+                android:id="@+id/radio_bateau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_bateau" />
+
+        </RadioGroup>
 
 
-    <Button
-        android:id="@+id/button_estimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bouton_estimer" />
+        <Button
+            android:id="@+id/button_estimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bouton_estimer" />
 
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

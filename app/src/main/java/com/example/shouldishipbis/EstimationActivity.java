@@ -3,13 +3,17 @@ package com.example.shouldishipbis;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONObject;
 
 public class EstimationActivity extends AppCompatActivity {
 
@@ -20,11 +24,6 @@ public class EstimationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_estimation);
-        Button boutonEstimer = findViewById(R.id.button_nouvelle_estimation);
-        boutonEstimer.setOnClickListener(v -> goToForm());
-    }
-
-    private void goToForm() {
         Intent intent = new Intent(EstimationActivity.this, FormActivity.class);
         startActivityForResult(intent, REQ_CODE);
     }
@@ -34,7 +33,19 @@ public class EstimationActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == REQ_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                // Afficher les résultats de l'estimation
+                String caStr = data.getStringExtra("ca");
+                TextView date = findViewById(R.id.text_date);
+                TextView carbone = findViewById(R.id.text_carbone);
+                try {
+                    JSONObject jsonCa = new JSONObject(caStr);
+                    jsonCa.getJSONObject("carbonkg");
+                    String dateStr = jsonCa.getJSONObject("EstimationDate").toString();
+                    String carboneStr = jsonCa.getJSONObject("carbonkg").toString();
+                    date.setText(dateStr);
+                    carbone.setText(carboneStr);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } else {
                 // si erreur
             }

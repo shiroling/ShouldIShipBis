@@ -29,4 +29,6 @@
     <string name="radio_train">Train</string>
     <string name="radio_bateau">Bateau</string>
     <string name="bouton_estimations">Estimations</string>
+    <string name="hint_poids">Poids du paquet</string>
+    <string name="hint_distance">Distance à parcourir</string>
 </resources>

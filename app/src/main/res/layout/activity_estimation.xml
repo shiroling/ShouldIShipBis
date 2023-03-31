@@ -6,10 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".EstimationActivity">
 
-    <Button
-        android:id="@+id/button_nouvelle_estimation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bouton_nouvelle_estimation"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/text_carbone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
