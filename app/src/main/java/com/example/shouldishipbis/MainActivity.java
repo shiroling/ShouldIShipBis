@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,6 +21,9 @@ import com.example.shouldishipbis.model.apiCalls.WeightUnit;
 import com.example.shouldishipbis.model.localDatabase.EstimateDAO;
 import com.example.shouldishipbis.model.localDatabase.EstimateDatabaseHelper;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.text.ParseException;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +42,20 @@ public class MainActivity extends AppCompatActivity {
         Button boutonHistorique = findViewById(R.id.BtnHistorique);
         boutonHistorique.setOnClickListener(v -> goToHistorique());
 
+        // Create a new instance of CarbonEstimation
+        CarbonEstimation carbonEstimation = new CarbonEstimation();
 
+        // Call requestEstimation method
+        carbonEstimation.requestEstimation(
+                Transport.SHIP,
+                100,
+                1000,
+                WeightUnit.KILOGRAMS,
+                DistanceUnit.KILOMETERS
+            );
+
+        // Print CarbonEstimation instance
+        Log.d("CarbonEstimation", carbonEstimation.toString());
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -1,20 +1,8 @@
 package com.example.shouldishipbis.model.apiCalls;
 
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class CarbonEstimation {
     private static final String API_URL = "https://www.carboninterface.com/api/v1/estimates";
@@ -29,19 +17,22 @@ public class CarbonEstimation {
     private double carbonLb;
     private double carbonKg;
     private double carbonMt;
+
+    // Instance nécessaires au traitement (pour Retrofit)
+
+
     public CarbonEstimation() {
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public CarbonEstimation requestEstimation(Transport transport, float weight, float distance, WeightUnit weightUnit, DistanceUnit distanceUnit)
-            throws IOException, JSONException, ParseException {
+    //@RequiresApi(api = Build.VERSION_CODES.O)
+    public CarbonEstimation requestEstimation(Transport transport, float weight, float distance, WeightUnit weightUnit, DistanceUnit distanceUnit) /*throws IOException, JSONException, ParseException */{
         this.transport = transport;
         this.weight = weight;
         this.distance = distance;
         this.weightUnit = weightUnit;
         this.distanceUnit = distanceUnit;
 
-        // Create the request body
+        /* Create the request body
         JSONObject requestBody = new JSONObject();
         requestBody.put("type", "shipping");
         requestBody.put("weight_value", weight);
@@ -86,7 +77,13 @@ public class CarbonEstimation {
         setCarbonLb(attributesJson.getDouble("carbon_lb"));
         setCarbonKg(attributesJson.getDouble("carbon_kg"));
         setCarbonMt(attributesJson.getDouble("carbon_mt"));
-
+*/
+        setId(String.valueOf(0 + Math.random() * (4000000 - 0)));
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy_HH:mm.ss", Locale.getDefault());
+        setEstimationDate(sdf.format(new Date()));
+        setCarbonLb(25 + Math.random() * (42 - 25));
+        setCarbonKg(0.05 + Math.random() * (10 - 0.05));
+        setCarbonMt(0.005 + Math.random() * (400 - 0.005));
         return this;
     }
     public String getId() {
@@ -168,4 +165,19 @@ public class CarbonEstimation {
         this.carbonMt = carbonMt;
     }
 
+    @Override
+    public String toString() {
+        return "CarbonEstimation{" +
+                "id='" + id + '\'' +
+                ", transport=" + transport +
+                ", weight=" + weight +
+                ", distance=" + distance +
+                ", weightUnit=" + weightUnit +
+                ", distanceUnit=" + distanceUnit +
+                ", estimationDate='" + estimationDate + '\'' +
+                ", carbonLb=" + carbonLb +
+                ", carbonKg=" + carbonKg +
+                ", carbonMt=" + carbonMt +
+                '}';
+    }
 }
