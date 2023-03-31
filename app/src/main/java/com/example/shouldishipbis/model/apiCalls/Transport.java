@@ -12,4 +12,14 @@ public enum Transport {
     public String getTransportName() {
         return transportName;
     }
+
+    public static Transport stringToTransport(String s) {
+        switch (s) {
+            case "ship" : return Transport.SHIP;
+            case "train" : return Transport.TRAIN;
+            case "truck" : return Transport.TRUCK;
+            case "plane" : return Transport.PLANE;
+            default: throw new RuntimeException("Unexpected input into the stringToTransport : "+s);
+        }
+    }
 }

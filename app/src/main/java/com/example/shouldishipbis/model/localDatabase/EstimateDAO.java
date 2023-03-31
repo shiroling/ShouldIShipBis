@@ -51,11 +51,11 @@ public class EstimateDAO {
             do {
                 CarbonEstimation estimate = new CarbonEstimation();
                 estimate.setId(cursor.getString(0));
-                estimate.setTransport(Transport.valueOf(cursor.getString(1)));
+                estimate.setTransport(Transport.stringToTransport(cursor.getString(1)));
                 estimate.setWeight(cursor.getFloat(2));
-                estimate.setWeightUnit(WeightUnit.valueOf(cursor.getString(3)));
+                estimate.setWeightUnit(WeightUnit.stringToUnit(cursor.getString(3)));
                 estimate.setDistance(cursor.getFloat(4));
-                estimate.setDistanceUnit(DistanceUnit.valueOf(cursor.getString(5)));
+                estimate.setDistanceUnit(DistanceUnit.stringToUnit(cursor.getString(5)));
                 estimate.setEstimationDate(cursor.getString(6));
                 estimate.setCarbonLb(cursor.getFloat(7));
                 estimate.setCarbonKg(cursor.getFloat(8));
