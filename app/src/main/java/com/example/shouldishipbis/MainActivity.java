@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
         Button boutonEstimation = findViewById(R.id.BtnEstimations);
-        boutonEstimation.setOnClickListener(v -> goToEstimation());
+        boutonEstimation.setOnClickListener(v -> goToActivity(EstimationActivity.class));
 
         Button boutonComparer = findViewById(R.id.BtnComparer);
-        boutonComparer.setOnClickListener(v -> goToComparer());
+        boutonComparer.setOnClickListener(v -> goToActivity(CompareActivity.class));
 
         Button boutonHistorique = findViewById(R.id.BtnHistorique);
-        boutonHistorique.setOnClickListener(v -> goToHistorique());
+        boutonHistorique.setOnClickListener(v -> goToActivity(HistoricActivity.class));
 
         // Create a new instance of CarbonEstimation
         CarbonEstimation carbonEstimation = new CarbonEstimation();
@@ -69,13 +69,13 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
                 break;
             case R.id.menu_estimation:
-                goToEstimation();
+                goToActivity(EstimationActivity.class);
                 break;
             case R.id.menu_comparer:
-                goToComparer();
+                goToActivity(CompareActivity.class);
                 break;
             case R.id.menu_historique:
-                goToHistorique();
+                goToActivity(HistoricActivity.class);
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -83,19 +83,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToEstimation(){
-        Intent intent = new Intent(MainActivity.this, EstimationActivity.class);
+    public void goToActivity(Class<?> activity) {
+        Intent intent = new Intent(MainActivity.this, activity);
         startActivity(intent);
     }
-
-    public void goToComparer(){
-        Intent intent = new Intent(MainActivity.this, CompareActivity.class);
-        startActivity(intent);
-    }
-
-    public void goToHistorique(){
-        Intent intent = new Intent(MainActivity.this, HistoricActivity.class);
-        startActivity(intent);
-    }
-
 }
