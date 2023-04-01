@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HistoricActivity extends AppCompatActivity {
-
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +30,9 @@ public class HistoricActivity extends AppCompatActivity {
         setContentView(R.layout.activity_historic);
 
         // Récupération de la liste
-        ListView listeV = (ListView) findViewById(R.id.listViewHistoric);
+        ListView listeV = findViewById(R.id.listViewHistoric);
         // lie l'adapter à la listeView
-        List<CarbonEstimation> listeValeursDansLaListe = new ArrayList<>();
+        List<CarbonEstimation> estimations = new ArrayList<>();
 
         // Création d'un adapter à partir de la liste
         ArrayAdapter<CarbonEstimation> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listeValeursDansLaListe);
@@ -60,6 +60,42 @@ public class HistoricActivity extends AppCompatActivity {
                 CarbonEstimation ca = (CarbonEstimation) parent.getItemAtPosition(position);
 
                 Toast.makeText(HistoricActivity.this, ca.toString() , Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+*/
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setTheme(R.style.AppTheme);
+        setContentView(R.layout.activity_historic);
+
+        // Récupération de la liste
+        ListView listView = findViewById(R.id.listViewHistoric);
+
+        // Lie l'adapter personnalisé à la listeView
+        CarbonEstimationAdapter adapter = new CarbonEstimationAdapter(this, new ArrayList<>());
+        listView.setAdapter(adapter);
+
+        EstimateDAO estimateDAO = new EstimateDAO(this);
+        try {
+            for (CarbonEstimation ca : estimateDAO.getAllEstimates()) {
+                // Ajout d'un élément à la liste de valeurs
+                adapter.add(ca);
+            }
+        } catch (ParseException e) {
+            Toast.makeText(this, R.string.errorMessageHistoricLoad, Toast.LENGTH_SHORT).show();
+            throw new RuntimeException(e);
+        }
+
+        // Code pour la gestion des clics sur les items de la liste
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Récupère la valeur de l'item à la position sur laquelle on a cliqué
+                CarbonEstimation ca = (CarbonEstimation) parent.getItemAtPosition(position);
+
+                Toast.makeText(HistoricActivity.this, ca.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
