@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">ShouldShip</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="title_activity_historic">HistoricActivity</string>
+    <string name="title_activity_form">FormActivity</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="title_activity_compare">CompareActivity</string>
+
+
+    <!-- ######### A l'affichage ########-->
+    <!-- Texte Menu -->
+    <string name="bouton_nouvelle_estimation">New estimation</string>
+    <string name="bouton_main">Home</string>
+    <string name="bouton_compare">Compare</string>
+    <string name="bouton_estimations">Estimations</string>
+    <string name="bouton_historique">Historic</string>
+    <string name="menu_quitter">Exit</string>
+
+    <!-- Texte formulaire -->
+    <string name="label_poids">Weight</string>
+    <string name="hint_poids">Package weight</string>
+    <string name="label_distance">Distance</string>
+    <string name="hint_distance">Travel distance</string>
+    <string name="label_transport">Transport</string>
+    <string name="radio_train">Train</string>
+    <string name="radio_avion">Plane</string>
+    <string name="radio_camion">Truck</string>
+    <string name="radio_bateau">Boat</string>
+    <string name="bouton_estimer">Estimate</string>
+
+    <!-- Titres -->
+    <string name="titreHistoric">Historic</string>
+    <string name="titreEstimation">Estimation</string>
+    <string name="titreComparer">Compare</string>
+    <string name="titreAcceuil">Home</string>
+
+    <!-- Historique -->
+    <string name="label_date">Estimation date : </string>
+    <string name="label_carbone">"Emission in carbone kilograms"</string>
+    <string name="errorMessageHistoricLoad">Can\'t load historic</string>
+
+    <!-- Strings à l'affichage -->
+    <string name="landscape_mode_off">This page is getter une landmode</string>
+    <string name="landscape_mode_on">Well done !!</string>
+</resources>
