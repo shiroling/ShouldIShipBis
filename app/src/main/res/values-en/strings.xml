@@ -20,9 +20,9 @@
     <string name="menu_quitter">Exit</string>
 
     <!-- Texte formulaire -->
-    <string name="label_poids">Weight</string>
+    <string name="label_poids">Weight : </string>
     <string name="hint_poids">Package weight</string>
-    <string name="label_distance">Distance</string>
+    <string name="label_distance">Distance : </string>
     <string name="hint_distance">Travel distance</string>
     <string name="label_transport">Transport</string>
     <string name="radio_train">Train</string>
@@ -39,10 +39,12 @@
 
     <!-- Historique -->
     <string name="label_date">Estimation date : </string>
-    <string name="label_carbone">"Emission in carbone kilograms"</string>
+    <string name="label_carbone">"Emission of carbone in kilograms : "</string>
     <string name="errorMessageHistoricLoad">Can\'t load historic</string>
 
     <!-- Strings à l'affichage -->
-    <string name="landscape_mode_off">This page is getter une landmode</string>
+    <string name="landscape_mode_off">This page works better in landscape</string>
     <string name="landscape_mode_on">Well done !!</string>
+    <string name="meilleur_compare">The best shipping is</string>
+
 </resources>
