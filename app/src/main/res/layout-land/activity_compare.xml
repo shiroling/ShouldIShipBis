@@ -7,183 +7,259 @@
     tools:context=".CompareActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/compare_label_poids1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/label_poids" />
-
-                <TextView
-                    android:id="@+id/compare_poids1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="valpoids1" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/compare_label_distance1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/label_distance" />
-
-                <TextView
-                    android:id="@+id/compare_distance1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="valdistance1" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/compare_label_carbone1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/label_carbone" />
-
-                <TextView
-                    android:id="@+id/compare_carbone1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="valcarbone1" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/compare_label_date1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/label_date" />
-
-                <TextView
-                    android:id="@+id/compare_date1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="valdate1" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_compare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50px"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout2">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
-                    android:id="@+id/compare_label_poids2"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/nom_compare1"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/label_poids" />
+                    android:text="SHIPPING 1" />
 
-                <TextView
-                    android:id="@+id/compare_poids2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="valpoids2" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/compare_label_poids1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/label_poids" />
+
+                    <TextView
+                        android:id="@+id/compare_poids1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="valpoids1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/compare_label_distance1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/label_distance" />
+
+                    <TextView
+                        android:id="@+id/compare_distance1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="valdistance1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/compare_label_carbone1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/label_carbone" />
+
+                    <TextView
+                        android:id="@+id/compare_carbone1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="valcarbone1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/compare_label_date1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/label_date" />
+
+                    <TextView
+                        android:id="@+id/compare_date1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="valdate1" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout2">
 
                 <TextView
-                    android:id="@+id/compare_label_distance2"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/nom_compare2"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/label_distance" />
+                    android:text="SHIPPING 2" />
 
-                <TextView
-                    android:id="@+id/compare_distance2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="valdistance2" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/compare_label_poids2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/label_poids" />
+
+                    <TextView
+                        android:id="@+id/compare_poids2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="valpoids2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/compare_label_distance2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/label_distance" />
+
+                    <TextView
+                        android:id="@+id/compare_distance2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="valdistance2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/compare_label_carbone2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/label_carbone" />
+
+                    <TextView
+                        android:id="@+id/compare_carbone2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="valcarbone2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/compare_label_date2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/label_date" />
+
+                    <TextView
+                        android:id="@+id/compare_date2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="valdate2" />
+
+                </LinearLayout>
 
             </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/constraint_compare">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginTop="32dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/compare_label_carbone2"
+                    android:id="@+id/meilleur_compare"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/label_carbone" />
+                    android:layout_height="wrap_content"
+                    android:text="@string/meilleur_compare"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-                <TextView
-                    android:id="@+id/compare_carbone2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="valcarbone2" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/nom_meilleur_compare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SHIPPING 1"
+                        android:textSize="24sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/compare_label_date2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/label_date" />
-
-                <TextView
-                    android:id="@+id/compare_date2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="valdate2" />
-
-            </LinearLayout>
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

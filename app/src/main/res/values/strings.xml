@@ -45,5 +45,5 @@
     <!-- Strings à l'affichage -->
     <string name="landscape_mode_off">Cette page fonctionne mieux en mode paysage !!</string>
     <string name="landscape_mode_on">Bravoo !!</string>
-    <string name="meilleur_compare">Le meilleur shipping est</string>
+    <string name="meilleur_compare">Le meilleur shipping est : </string>
 </resources>
