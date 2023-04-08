@@ -19,9 +19,9 @@
 	- [ ] CompareActivity, permet de comparer deux activitées en entrée
 	- [ ] HistoricActivity, permet de visionner les estimations calculées.
 - [ ] 1 Toast utilisé minimum.
-- [ ] Layout Paysage/Portrait différents et appropriés pour au moins 1 activité
-	- [ ] Pour l'activité comparaison.
-- [ ] 2 langues (si changement de la langue du téléphone, changement de la langue dans l’application).
+- [x] Layout Paysage/Portrait différents et appropriés pour au moins 1 activité
+	- [x] Pour l'activité comparaison.
+- [x] 2 langues (si changement de la langue du téléphone, changement de la langue dans l’application).
 - [ ] Liste d’items avec personnalisation (adapter personnalisé).
 	- [ ] Historic, ça y est mais le visuel est moche.
 
