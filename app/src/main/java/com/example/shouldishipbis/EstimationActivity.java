@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +42,8 @@ public class EstimationActivity extends AppCompatActivity {
                 date.setText(dateStr);
                 carbone.setText(carboneStr);
             } else {
-                // si erreur
+                Toast.makeText(this, R.string.estimationActivityOnResultFailureText, Toast.LENGTH_LONG).show();
+                finish();
             }
         }
     }
