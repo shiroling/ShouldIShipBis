@@ -43,7 +43,7 @@
     <string name="errorMessageHistoricLoad">Can\'t load historic</string>
 
     <!-- Strings à l'affichage -->
-    <string name="landscape_mode_off">This page works better in landscape</string>
+    <string name="landscape_mode_off">Put your phone in landscape mode to see the result!</string>
     <string name="landscape_mode_on">Well done !!</string>
     <string name="meilleur_compare">The best shipping is: </string>
 
