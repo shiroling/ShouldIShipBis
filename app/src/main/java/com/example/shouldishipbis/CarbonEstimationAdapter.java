@@ -1,5 +1,6 @@
 package com.example.shouldishipbis;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ public class CarbonEstimationAdapter extends ArrayAdapter<CarbonEstimation> {
         super(context, 0, estimations);
     }
 
+    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -43,9 +45,9 @@ public class CarbonEstimationAdapter extends ArrayAdapter<CarbonEstimation> {
         TextView textDate = convertView.findViewById(R.id.textDate);
         textDate.setText(estimation.getEstimationDate());
         TextView textMass = convertView.findViewById(R.id.textMass);
-        textMass.setText(String.format(Locale.getDefault(), "%.2f %s", estimation.getWeight(), estimation.getWeightUnit().getSign()));
+        textMass.append(String.format(Locale.getDefault(), " %.2f %s", estimation.getWeight(), estimation.getWeightUnit().getSign()));
         TextView textDistance = convertView.findViewById(R.id.textDistance);
-        textDistance.setText(String.format(Locale.getDefault(), "%.2f %s", estimation.getDistance(), estimation.getDistanceUnit().getSign()));
+        textDistance.append(String.format(Locale.getDefault(), " %.2f %s", estimation.getDistance(), estimation.getDistanceUnit().getSign()));
         TextView textCarbon = convertView.findViewById(R.id.textCarbon);
         textCarbon.setText(String.format(Locale.getDefault(), "%.2f kg", estimation.getCarbonKg()));
 
