@@ -64,7 +64,6 @@ public class EstimateDAO {
                 estimateList.add(estimate);
             } while (cursor.moveToNext());
         }
-        Log.d("DAO", "getAllEstimates : count= "+ count );
         cursor.close();
         db.close();
         return estimateList;
