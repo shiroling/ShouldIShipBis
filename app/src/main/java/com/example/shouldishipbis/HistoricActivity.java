@@ -7,7 +7,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,9 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.shouldishipbis.model.apiCalls.CarbonEstimation;
 import com.example.shouldishipbis.model.localDatabase.EstimateDAO;
 
+import org.json.JSONObject;
+
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class HistoricActivity extends AppCompatActivity {
 /*
@@ -94,8 +94,7 @@ public class HistoricActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Récupère la valeur de l'item à la position sur laquelle on a cliqué
                 CarbonEstimation ca = (CarbonEstimation) parent.getItemAtPosition(position);
-
-                Toast.makeText(HistoricActivity.this, ca.toString(), Toast.LENGTH_SHORT).show();
+                goToEstimation(ca);
             }
         });
     }
@@ -114,7 +113,7 @@ public class HistoricActivity extends AppCompatActivity {
                 System.exit(0);
                 break;
             case R.id.menu_estimation:
-                goToEstimation();
+                goToEstimation(null);
                 break;
             case R.id.menu_comparer:
                 goToComparer();
@@ -128,8 +127,11 @@ public class HistoricActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToEstimation(){
-        Intent intent = new Intent(HistoricActivity.this, FormActivity.class);
+    public void goToEstimation(CarbonEstimation ca) {
+        Intent intent = new Intent(HistoricActivity.this, EstimationActivity.class);
+        if (ca != null) {
+            intent.putExtra("carbonEstimation", ca);
+        }
         startActivity(intent);
     }
 

@@ -20,6 +20,7 @@ import com.example.shouldishipbis.model.apiCalls.CarbonEstimation;
 import com.example.shouldishipbis.model.apiCalls.DistanceUnit;
 import com.example.shouldishipbis.model.apiCalls.Transport;
 import com.example.shouldishipbis.model.apiCalls.WeightUnit;
+import com.example.shouldishipbis.model.localDatabase.EstimateDAO;
 
 public class FormActivity extends AppCompatActivity {
 
@@ -62,8 +63,10 @@ public class FormActivity extends AppCompatActivity {
         try {
             CarbonEstimation ca = new CarbonEstimation();
             ca.requestEstimation(this, transport, valPoids, valDistance, WeightUnit.KILOGRAMS, DistanceUnit.KILOMETERS);
+            EstimateDAO estimateDAO = new EstimateDAO(this);
+            estimateDAO.insertEstimate(ca);
             Intent intentRetour = new Intent();
-            intentRetour.putExtra("ca", ca.toString());
+            intentRetour.putExtra("carbonEstimation", ca);
             setResult(RESULT_OK, intentRetour);
             finish();
         } catch (Exception e) {

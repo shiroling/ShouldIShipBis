@@ -4,11 +4,13 @@ import android.content.Context;
 
 import com.example.shouldishipbis.model.localDatabase.EstimateDAO;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
-public class CarbonEstimation {
+public class CarbonEstimation implements Serializable {
     private static final String API_URL = "https://www.carboninterface.com/api/v1/estimates";
     private String id;
     private Transport transport;
@@ -36,53 +38,7 @@ public class CarbonEstimation {
         this.weightUnit = weightUnit;
         this.distanceUnit = distanceUnit;
 
-        /* Create the request body
-        JSONObject requestBody = new JSONObject();
-        requestBody.put("type", "shipping");
-        requestBody.put("weight_value", weight);
-        requestBody.put("weight_unit", weightUnit.toString());
-        requestBody.put("distance_value", distance);
-        requestBody.put("distance_unit", distanceUnit.toString());
-        requestBody.put("transport_method", transport.toString());
-
-        // Open a connection to the API endpoint
-        URL url = new URL(API_URL);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Authorization", "Bearer N1yDYHec4afQtPK7TlxSiA");
-
-        // Send the request body
-        connection.setDoOutput(true);
-        OutputStream outputStream = connection.getOutputStream();
-        outputStream.write(requestBody.toString().getBytes());
-        outputStream.flush();
-        outputStream.close();
-
-        // Read the response
-        InputStream inputStream = connection.getInputStream();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        StringBuilder responseStringBuilder = new StringBuilder();
-        String line;
-        while ((line = bufferedReader.readLine()) != null) {
-            responseStringBuilder.append(line);
-        }
-        bufferedReader.close();
-        inputStream.close();
-
-        // Parse the JSON response
-        JSONObject responseJson = new JSONObject(responseStringBuilder.toString());
-        JSONObject dataJson = responseJson.getJSONObject("data");
-        JSONObject attributesJson = dataJson.getJSONObject("attributes");
-
-        // Get the estimated carbon emissions value
-
-        setEstimationDate(attributesJson.getString("estimated_at"));
-        setCarbonLb(attributesJson.getDouble("carbon_lb"));
-        setCarbonKg(attributesJson.getDouble("carbon_kg"));
-        setCarbonMt(attributesJson.getDouble("carbon_mt"));
-*/
-        setId(String.valueOf(0 + Math.random() * (4000000 - 0)));
+        setId(hashCode(this));
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy_HH:mm.ss", Locale.getDefault());
         setEstimationDate(sdf.format(new Date()));
         setCarbonLb(25 + Math.random() * (42 - 25));
@@ -93,6 +49,11 @@ public class CarbonEstimation {
 
         return this;
     }
+
+    private String hashCode(CarbonEstimation carbonEstimation) {
+        return String.valueOf(Objects.hash(id, transport, weight, distance, weightUnit, distanceUnit, estimationDate, carbonLb, carbonKg, carbonMt));
+    }
+
     public String getId() {
         return id;
     }
@@ -186,5 +147,13 @@ public class CarbonEstimation {
                 ", carbonKg=" + carbonKg +
                 ", carbonMt=" + carbonMt +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CarbonEstimation that = (CarbonEstimation) o;
+        return Double.compare(that.weight, weight) == 0 && Double.compare(that.distance, distance) == 0 && Double.compare(that.carbonLb, carbonLb) == 0 && Double.compare(that.carbonKg, carbonKg) == 0 && Double.compare(that.carbonMt, carbonMt) == 0 && id.equals(that.id) && transport == that.transport && weightUnit == that.weightUnit && distanceUnit == that.distanceUnit && estimationDate.equals(that.estimationDate);
     }
 }

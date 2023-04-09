@@ -3,18 +3,15 @@ package com.example.shouldishipbis;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONObject;
+import com.example.shouldishipbis.model.apiCalls.CarbonEstimation;
 
 public class EstimationActivity extends AppCompatActivity {
 
@@ -25,27 +22,36 @@ public class EstimationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_estimation);
-        Intent intent = new Intent(EstimationActivity.this, FormActivity.class);
-        startActivityForResult(intent, REQ_CODE);
+        if (getIntent().hasExtra("carbonEstimation")) {
+            CarbonEstimation ca = (CarbonEstimation) getIntent().getSerializableExtra("carbonEstimation");
+            setEstimationInfo(ca);
+        } else {
+            Intent intent = new Intent(EstimationActivity.this, FormActivity.class);
+            startActivityForResult(intent, REQ_CODE);
+        }
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, Intent dataIntent) {
+        super.onActivityResult(requestCode, resultCode, dataIntent);
         if(requestCode == REQ_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                String caStr = data.getStringExtra("ca");
-                String dateStr = caStr.split(",")[6].split("=")[1];
-                String carboneStr = caStr.split(",")[8].split("=")[1];
-                TextView date = findViewById(R.id.text_date);
-                TextView carbone = findViewById(R.id.text_carbone);
-                date.setText(dateStr);
-                carbone.setText(carboneStr);
+                CarbonEstimation ca = (CarbonEstimation) dataIntent.getSerializableExtra("carbonEstimation");
+                setEstimationInfo(ca);
             } else {
                 Toast.makeText(this, R.string.estimationActivityOnResultFailureText, Toast.LENGTH_LONG).show();
                 finish();
             }
         }
+    }
+
+    private void setEstimationInfo(CarbonEstimation ca) {
+        TextView date = findViewById(R.id.text_date);
+        TextView carbone = findViewById(R.id.text_carbone);
+        String dateStr = ca.getEstimationDate();
+        String carboneStr = ca.getCarbonKg()+ "kg";
+        date.setText(dateStr);
+        carbone.setText(carboneStr);
     }
 
     @Override
