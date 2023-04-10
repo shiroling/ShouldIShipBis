@@ -46,5 +46,6 @@
     <string name="landscape_mode_off">Put your phone in landscape mode to see the result!</string>
     <string name="landscape_mode_on">Well done !!</string>
     <string name="meilleur_compare">The best shipping is: </string>
+    <string name="egalite_compare">DRAW</string>
 
 </resources>

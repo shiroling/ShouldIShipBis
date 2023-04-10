@@ -46,4 +46,5 @@
     <string name="landscape_mode_off">Tournez votre téléphone en mode payage pour voir le résultat !</string>
     <string name="landscape_mode_on">Bravoo !!</string>
     <string name="meilleur_compare">Le meilleur shipping est : </string>
+    <string name="egalite_compare">EGALITE</string>
 </resources>

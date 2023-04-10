@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HistoricActivity extends AppCompatActivity {
+    private int code;
 /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +71,8 @@ public class HistoricActivity extends AppCompatActivity {
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_historic);
 
+        code = 1;
+
         // Récupération de la liste
         ListView listView = findViewById(R.id.listViewHistoric);
 
@@ -95,7 +98,31 @@ public class HistoricActivity extends AppCompatActivity {
                 // Récupère la valeur de l'item à la position sur laquelle on a cliqué
                 CarbonEstimation ca = (CarbonEstimation) parent.getItemAtPosition(position);
 
-                Toast.makeText(HistoricActivity.this, ca.toString(), Toast.LENGTH_SHORT).show();
+                if(getCallingActivity().getShortClassName().equals(".CompareActivity")) {
+                    if(code == 1){
+                        code = 2;
+                        Intent intentRetour = new Intent();
+                        intentRetour.putExtra("valCarbone1", ca.getCarbonKg());
+                        intentRetour.putExtra("valDate1", ca.getEstimationDate());
+                        intentRetour.putExtra("valPoids1", ca.getWeight());
+                        intentRetour.putExtra("valDistance1", ca.getDistance());
+                        //intentRetour.putExtra("titreShipping1", ca.getName());
+                        setResult(RESULT_OK, intentRetour);
+                        finish();
+                    } else {
+                        code = 1;
+                        Intent intentRetour = new Intent();
+                        intentRetour.putExtra("valCarbone2", ca.getCarbonKg());
+                        intentRetour.putExtra("valDate2", ca.getEstimationDate());
+                        intentRetour.putExtra("valPoids2", ca.getWeight());
+                        intentRetour.putExtra("valDistance2", ca.getDistance());
+                        //intentRetour.putExtra("titreShipping2", ca.getName());
+                        setResult(RESULT_OK, intentRetour);
+                        finish();
+                    }
+                } else {
+                    Toast.makeText(HistoricActivity.this, ca.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
