@@ -51,5 +51,7 @@
     <string name="egalite_compare">DRAW</string>
     <string name="estimationActivityOnResultFailureText">Estimation failed, try again later !</string>
     <string name="totalEstimationLabel">"Total carbon cost : "</string>
+    <string name="label_nom">Name</string>
+    <string name="hint_nom">Name of the estimation</string>
 
 </resources>

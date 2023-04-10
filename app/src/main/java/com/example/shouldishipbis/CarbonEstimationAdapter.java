@@ -42,7 +42,9 @@ public class CarbonEstimationAdapter extends ArrayAdapter<CarbonEstimation> {
             case TRUCK : { textEmoji.setText(R.string.truckEmoji);break;}
             case TRAIN : { textEmoji.setText(R.string.trainEmoji);break;}
         }
-        TextView textDate = convertView.findViewById(R.id.textDate);
+        TextView textName = convertView.findViewById(R.id.textName);
+        textName.setText(estimation.getName());
+        TextView textDate = convertView.findViewById(R.id.textName);
         textDate.setText(estimation.getEstimationDate());
         TextView textMass = convertView.findViewById(R.id.textMass);
         textMass.append(String.format(Locale.getDefault(), " %.2f %s", estimation.getWeight(), estimation.getWeightUnit().getSign()));

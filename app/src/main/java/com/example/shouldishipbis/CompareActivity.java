@@ -87,10 +87,10 @@ public class CompareActivity extends AppCompatActivity {
     }
 
     private void setTextPortrait(Intent data){
-        //titreShipping1.setText(data.getStringExtra("titreShipping1"));
+        titreShipping1.setText(data.getStringExtra("titreShipping1"));
         valCarbone1.setText(data.getStringExtra("valCarbone1"));
         valDate1.setText(data.getStringExtra("valDate1"));
-        //titreShipping2.setText(data.getStringExtra("titreShipping2"));
+        titreShipping2.setText(data.getStringExtra("titreShipping2"));
         valCarbone2.setText(data.getStringExtra("valCarbone2"));
         valDate2.setText(data.getStringExtra("valDate2"));
     }
@@ -102,14 +102,11 @@ public class CompareActivity extends AppCompatActivity {
         valDistance1.setText(data.getStringExtra("valDistance1"));
         valDistance2.setText(data.getStringExtra("valDistance2"));
         if(data.getStringExtra("valCarbone1").compareTo(data.getStringExtra("valCarbone2")) < 0) {
-            //meilleurCompare.setText(getIntent().getStringExtra("titreShipping1"));
-            meilleurCompare.setText("1");
+            meilleurCompare.setText(getIntent().getStringExtra("titreShipping1"));
         } else if(data.getStringExtra("valCarbone1").compareTo(data.getStringExtra("valCarbone2")) > 0){
-            //meilleurCompare.setText(getIntent().getStringExtra("titreShipping2"));
-            meilleurCompare.setText("2");
+            meilleurCompare.setText(getIntent().getStringExtra("titreShipping2"));
         } else {
-            //meilleurCompare.setText(R.string.egalite_compare);
-            meilleurCompare.setText("e");
+            meilleurCompare.setText(R.string.egalite_compare);
         }
     }
 

@@ -13,6 +13,7 @@ import java.util.Objects;
 public class CarbonEstimation implements Serializable {
     private static final String API_URL = "https://www.carboninterface.com/api/v1/estimates";
     private String id;
+    private String name;
     private Transport transport;
     private double weight;
     private double distance;
@@ -31,7 +32,8 @@ public class CarbonEstimation implements Serializable {
     }
 
     //@RequiresApi(api = Build.VERSION_CODES.O)
-    public CarbonEstimation requestEstimation(Context context, Transport transport, float weight, float distance, WeightUnit weightUnit, DistanceUnit distanceUnit) /*throws IOException, JSONException, ParseException */{
+    public CarbonEstimation requestEstimation(Context context, String name, Transport transport, float weight, float distance, WeightUnit weightUnit, DistanceUnit distanceUnit) /*throws IOException, JSONException, ParseException */{
+        this.name = name;
         this.transport = transport;
         this.weight = weight;
         this.distance = distance;
@@ -60,6 +62,14 @@ public class CarbonEstimation implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     public Transport getTransport() {
@@ -137,6 +147,7 @@ public class CarbonEstimation implements Serializable {
     public String toString() {
         return "CarbonEstimation{" +
                 "id='" + id + '\'' +
+                ", name=" + name +
                 ", transport=" + transport +
                 ", weight=" + weight +
                 ", distance=" + distance +

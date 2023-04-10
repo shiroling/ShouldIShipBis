@@ -36,6 +36,9 @@ public class FormActivity extends AppCompatActivity {
 
     @SuppressLint("NonConstantResourceId")
     public void estimation(){
+        EditText saisieNom = findViewById(R.id.edit_text_nom);
+        String valNom = String.valueOf(saisieNom.getText());
+
         EditText saisiePoids = findViewById(R.id.edit_text_poids);
         int valPoids = Integer.parseInt(saisiePoids.getText().toString());
 
@@ -43,7 +46,6 @@ public class FormActivity extends AppCompatActivity {
         int valDistance = Integer.parseInt(saisieDistance.getText().toString());
 
         RadioGroup radioTransport = findViewById(R.id.radio_transport);
-        RadioButton checkedTransport = findViewById(radioTransport.getCheckedRadioButtonId());
         Transport transport;
         switch (radioTransport.getCheckedRadioButtonId()) {
             case R.id.radio_bateau: {
@@ -68,7 +70,7 @@ public class FormActivity extends AppCompatActivity {
         }
         try {
             CarbonEstimation ca = new CarbonEstimation();
-            ca.requestEstimation(this, transport, valPoids, valDistance, WeightUnit.KILOGRAMS, DistanceUnit.KILOMETERS);
+            ca.requestEstimation(this, valNom, transport, valPoids, valDistance, WeightUnit.KILOGRAMS, DistanceUnit.KILOMETERS);
             EstimateDAO estimateDAO = new EstimateDAO(this);
             estimateDAO.insertEstimate(ca);
             Intent intentRetour = new Intent();

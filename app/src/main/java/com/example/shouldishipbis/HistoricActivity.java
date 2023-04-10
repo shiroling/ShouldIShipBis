@@ -112,7 +112,7 @@ public class HistoricActivity extends AppCompatActivity {
                         intentCompare.putExtra("valDate1", ca.getEstimationDate());
                         intentCompare.putExtra("valPoids1", Double.toString(ca.getWeight()));
                         intentCompare.putExtra("valDistance1", Double.toString(ca.getDistance()));
-                        //intentRetour.putExtra("titreShipping1", ca.getName());
+                        intentCompare.putExtra("titreShipping1", ca.getName());
                         TextView titre = findViewById(R.id.titreHistoric);
                         titre.setText(R.string.titreHistoriqueCompare2);
                     } else {
@@ -120,7 +120,7 @@ public class HistoricActivity extends AppCompatActivity {
                         intentCompare.putExtra("valDate2", ca.getEstimationDate());
                         intentCompare.putExtra("valPoids2", Double.toString(ca.getWeight()));
                         intentCompare.putExtra("valDistance2", Double.toString(ca.getDistance()));
-                        //intentRetour.putExtra("titreShipping2", ca.getName());
+                        intentCompare.putExtra("titreShipping2", ca.getName());
                         setResult(RESULT_OK, intentCompare);
                         finish();
                     }
@@ -176,8 +176,5 @@ public class HistoricActivity extends AppCompatActivity {
         Intent intent = new Intent(HistoricActivity.this, MainActivity.class);
         startActivity(intent);
     }
-
-
-
 
 }

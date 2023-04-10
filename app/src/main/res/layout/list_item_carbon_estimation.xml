@@ -20,6 +20,11 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
             android:id="@+id/textDate"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
