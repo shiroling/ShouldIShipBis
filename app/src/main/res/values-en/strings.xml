@@ -41,6 +41,8 @@
     <string name="label_date">Estimation date : </string>
     <string name="label_carbone">"Emission of carbone in kilograms : "</string>
     <string name="errorMessageHistoricLoad">Can\'t load historic</string>
+    <string name="titreHistoriqueCompare1">1st shipping</string>
+    <string name="titreHistoriqueCompare2">2nd shipping</string>
 
     <!-- Strings à l'affichage -->
     <string name="landscape_mode_off">Put your phone in landscape mode to see the result!</string>

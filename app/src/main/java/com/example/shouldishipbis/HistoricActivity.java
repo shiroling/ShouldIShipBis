@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 
 public class HistoricActivity extends AppCompatActivity {
     private int code;
+    private Intent intentCompare;
 /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,37 +93,38 @@ public class HistoricActivity extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
+        if(getCallingActivity() != null) {
+            TextView titre = findViewById(R.id.titreHistoric);
+            titre.setText(R.string.titreHistoriqueCompare1);
+        }
+
+        intentCompare = new Intent();
         // Code pour la gestion des clics sur les items de la liste
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Récupère la valeur de l'item à la position sur laquelle on a cliqué
                 CarbonEstimation ca = (CarbonEstimation) parent.getItemAtPosition(position);
-
-                if(getCallingActivity().getShortClassName().equals(".CompareActivity")) {
+                if(getCallingActivity() != null) {
                     if(code == 1){
                         code = 2;
-                        Intent intentRetour = new Intent();
-                        intentRetour.putExtra("valCarbone1", ca.getCarbonKg());
-                        intentRetour.putExtra("valDate1", ca.getEstimationDate());
-                        intentRetour.putExtra("valPoids1", ca.getWeight());
-                        intentRetour.putExtra("valDistance1", ca.getDistance());
+                        intentCompare.putExtra("valCarbone1", Double.toString(ca.getCarbonKg()));
+                        intentCompare.putExtra("valDate1", ca.getEstimationDate());
+                        intentCompare.putExtra("valPoids1", Double.toString(ca.getWeight()));
+                        intentCompare.putExtra("valDistance1", Double.toString(ca.getDistance()));
                         //intentRetour.putExtra("titreShipping1", ca.getName());
-                        setResult(RESULT_OK, intentRetour);
-                        finish();
+                        TextView titre = findViewById(R.id.titreHistoric);
+                        titre.setText(R.string.titreHistoriqueCompare2);
                     } else {
-                        code = 1;
-                        Intent intentRetour = new Intent();
-                        intentRetour.putExtra("valCarbone2", ca.getCarbonKg());
-                        intentRetour.putExtra("valDate2", ca.getEstimationDate());
-                        intentRetour.putExtra("valPoids2", ca.getWeight());
-                        intentRetour.putExtra("valDistance2", ca.getDistance());
+                        intentCompare.putExtra("valCarbone2", Double.toString(ca.getCarbonKg()));
+                        intentCompare.putExtra("valDate2", ca.getEstimationDate());
+                        intentCompare.putExtra("valPoids2", Double.toString(ca.getWeight()));
+                        intentCompare.putExtra("valDistance2", Double.toString(ca.getDistance()));
                         //intentRetour.putExtra("titreShipping2", ca.getName());
-                        setResult(RESULT_OK, intentRetour);
+                        setResult(RESULT_OK, intentCompare);
                         finish();
                     }
                 } else {
-                    Toast.makeText(HistoricActivity.this, ca.toString(), Toast.LENGTH_SHORT).show();
                     goToEstimation(ca);
                 }
             }

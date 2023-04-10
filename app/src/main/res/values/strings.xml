@@ -44,6 +44,8 @@
     <string name="label_date">Date de l\'estimation : </string>
     <string name="label_carbone">Masse (en kg) de carbone émis : </string>
     <string name="errorMessageHistoricLoad">Impossible de charger l\'historique</string>
+    <string name="titreHistoriqueCompare1">1er shipping</string>
+    <string name="titreHistoriqueCompare2">2eme shipping</string>
 
     <!-- Strings à l'affichage -->
     <string name="landscape_mode_off">Tournez votre téléphone en mode payage pour voir le résultat !</string>

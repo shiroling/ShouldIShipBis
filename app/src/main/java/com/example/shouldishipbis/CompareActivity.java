@@ -28,8 +28,8 @@ public class CompareActivity extends AppCompatActivity {
     private TextView valDistance1;
     private TextView valDistance2;
     private TextView meilleurCompare;
-    private final int REQ_CODE_1 = 1;
-    private final int REQ_CODE_2 = 2;
+    private final int REQ_CODE = 1;
+    private Intent historicData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,26 +37,18 @@ public class CompareActivity extends AppCompatActivity {
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_compare);
         Intent intent = new Intent(CompareActivity.this, HistoricActivity.class);
-        startActivityForResult(intent, REQ_CODE_1);
+        startActivityForResult(intent, REQ_CODE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQ_CODE_1) {
+        historicData = data;
+        if(requestCode == REQ_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 setContentView(R.layout.activity_compare);
-                initializePortrait1();
-                setTextPortrait1(data);
-                Intent intent = new Intent(CompareActivity.this, HistoricActivity.class);
-                startActivityForResult(intent, REQ_CODE_2);
-            } else {
-                // si erreur
-            }
-        } else if (requestCode == REQ_CODE_2) {
-            if (resultCode == Activity.RESULT_OK) {
-                initializePortrait2();
-                setTextPortrait2(data);
+                initializePortrait();
+                setTextPortrait(historicData);
             } else {
                 // si erreur
             }
@@ -69,24 +61,24 @@ public class CompareActivity extends AppCompatActivity {
         setContentView(R.layout.activity_compare);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             initializeLandscape();
-            setTextLandscape();
+            setTextLandscape(historicData);
         } else if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            initializePortrait();
+            setTextPortrait(historicData);
         }
     }
 
-    private void initializePortrait1(){
+    private void initializePortrait(){
         titreShipping1 = findViewById(R.id.nom_compare1);
         valCarbone1 = findViewById(R.id.compare_carbone1);
         valDate1 = findViewById(R.id.compare_date1);
-    }
-
-    private void initializePortrait2(){
         titreShipping2 = findViewById(R.id.nom_compare2);
         valCarbone2 = findViewById(R.id.compare_carbone2);
         valDate2 = findViewById(R.id.compare_date2);
     }
 
     private void initializeLandscape(){
+        initializePortrait();
         valPoids1 = findViewById(R.id.compare_poids1);
         valPoids2 = findViewById(R.id.compare_poids2);
         valDistance1 = findViewById(R.id.compare_distance1);
@@ -94,30 +86,31 @@ public class CompareActivity extends AppCompatActivity {
         meilleurCompare = findViewById(R.id.nom_meilleur_compare);
     }
 
-    private void setTextPortrait1(Intent data){
+    private void setTextPortrait(Intent data){
         //titreShipping1.setText(data.getStringExtra("titreShipping1"));
-        valCarbone1.setText(data.getIntExtra("valCarbone1", 0));
+        valCarbone1.setText(data.getStringExtra("valCarbone1"));
         valDate1.setText(data.getStringExtra("valDate1"));
-    }
-
-    private void setTextPortrait2(Intent data){
         //titreShipping2.setText(data.getStringExtra("titreShipping2"));
-        valCarbone2.setText(data.getIntExtra("valCarbone2", 0));
+        valCarbone2.setText(data.getStringExtra("valCarbone2"));
         valDate2.setText(data.getStringExtra("valDate2"));
     }
 
-    private void setTextLandscape(){
-        //valPoids1.setText(getIntent().getDoubleExtra("valPoids1", 0));
-        //valPoids2.setText(getIntent().getIntExtra("valPoids2", 0));
-        //valDistance1.setText(getIntent().getStringExtra("valDistance1"));
-        //valDistance2.setText(getIntent().getStringExtra("valDistance2"));
-        //if(getIntent().getIntExtra("valCarbone1", 0) < getIntent().getIntExtra("valCarbone2", 0)) {
-        //    meilleurCompare.setText(getIntent().getStringExtra("titreShipping1"));
-        //} else if(getIntent().getIntExtra("valCarbone1", 0) > getIntent().getIntExtra("valCarbone2", 0)){
-        //    meilleurCompare.setText(getIntent().getStringExtra("titreShipping2"));
-        //} else {
-        //    meilleurCompare.setText(R.string.egalite_compare);
-        //}
+    private void setTextLandscape(Intent data){
+        setTextPortrait(data);
+        valPoids1.setText(data.getStringExtra("valPoids1"));
+        valPoids2.setText(data.getStringExtra("valPoids2"));
+        valDistance1.setText(data.getStringExtra("valDistance1"));
+        valDistance2.setText(data.getStringExtra("valDistance2"));
+        if(data.getStringExtra("valCarbone1").compareTo(data.getStringExtra("valCarbone2")) < 0) {
+            //meilleurCompare.setText(getIntent().getStringExtra("titreShipping1"));
+            meilleurCompare.setText("1");
+        } else if(data.getStringExtra("valCarbone1").compareTo(data.getStringExtra("valCarbone2")) > 0){
+            //meilleurCompare.setText(getIntent().getStringExtra("titreShipping2"));
+            meilleurCompare.setText("2");
+        } else {
+            //meilleurCompare.setText(R.string.egalite_compare);
+            meilleurCompare.setText("e");
+        }
     }
 
     @Override
