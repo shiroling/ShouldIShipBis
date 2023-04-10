@@ -12,21 +12,21 @@
 	- [ ] Android studio
 	- [ ] Rien de spécial de mon coté
 ## Éléments obligatoirement présents :
-- [ ] 4 activités avec des liens entre elles ; au moins une avec retour de valeur (à préciser).
+- [x] 4 activités avec des liens entre elles ; au moins une avec retour de valeur (à préciser).
 	- [x] FromActivity (appelé par EstimationsActivity, retourne l'estimation calculé par les infos du formulaire).
 	- [x] EstimationActivity, affiche les informations sur une estiation donné ou lance le formulaire pour en créer une si aucune n'es fournie
 	- [x] HistoricActivity, permet de visionner les estimations calculées.
-	- [ ] CompareActivity, permet de comparer deux activitées en entrée
+	- [x] CompareActivity, permet de comparer deux activitées en entrée
 		- [x] layout et visuel
- [ ] startForResult x2 pour les infos des deux estimations
-- [ ] 1 Toast utilisé minimum.
+ [x] startForResult x2 pour les infos des deux estimations
+- [x] 1 Toast utilisé minimum.
 - [x] Layout Paysage/Portrait différents et appropriés pour au moins 1 activité
 	- [x] Pour l'activité comparaison.
 - [x] 2 langues (si changement de la langue du téléphone, changement de la langue dans l’application).
-- [ ] Liste d’items avec personnalisation (adapter personnalisé).
+- [x] Liste d’items avec personnalisation (adapter personnalisé).
 	- [x] Historic, 
 	- [x] personalisation
-	- [ ] visuel est pas moche.
+	- [x] visuel est pas moche.
 
 - [x] 1 menu avec au moins un item dans la barre d’action et un item minimum dans le menu surgissant.
 	- [x] Nom de l'apli, bouton quitter
