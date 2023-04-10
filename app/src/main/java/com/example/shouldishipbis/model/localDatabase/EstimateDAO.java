@@ -27,6 +27,7 @@ public class EstimateDAO {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("id", estimate.getId());
+        values.put("name", estimate.getName());
         values.put("transport", estimate.getTransport().getTransportName());
         values.put("weight", estimate.getWeight());
         values.put("weight_unit", estimate.getWeightUnit().getSign());
@@ -43,24 +44,23 @@ public class EstimateDAO {
 
     public List<CarbonEstimation> getAllEstimates() throws ParseException {
         List<CarbonEstimation> estimateList = new ArrayList<>();
-        String selectQuery = "SELECT  * FROM carbon_estimations";
+        String selectQuery = "SELECT * FROM carbon_estimations";
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-        int count = 0;
         if (cursor.moveToFirst()) {
             do {
-                count++;
                 CarbonEstimation estimate = new CarbonEstimation();
                 estimate.setId(cursor.getString(0));
-                estimate.setTransport(Transport.stringToTransport(cursor.getString(1)));
-                estimate.setWeight(cursor.getFloat(2));
-                estimate.setWeightUnit(WeightUnit.stringToUnit(cursor.getString(3)));
-                estimate.setDistance(cursor.getFloat(4));
-                estimate.setDistanceUnit(DistanceUnit.stringToUnit(cursor.getString(5)));
-                estimate.setEstimationDate(cursor.getString(6));
-                estimate.setCarbonLb(cursor.getFloat(7));
-                estimate.setCarbonKg(cursor.getFloat(8));
-                estimate.setCarbonMt(cursor.getFloat(9));
+                estimate.setName(cursor.getString(1));
+                estimate.setTransport(Transport.stringToTransport(cursor.getString(2)));
+                estimate.setWeight(cursor.getFloat(3));
+                estimate.setWeightUnit(WeightUnit.stringToUnit(cursor.getString(4)));
+                estimate.setDistance(cursor.getFloat(5));
+                estimate.setDistanceUnit(DistanceUnit.stringToUnit(cursor.getString(6)));
+                estimate.setEstimationDate(cursor.getString(7));
+                estimate.setCarbonLb(cursor.getFloat(8));
+                estimate.setCarbonKg(cursor.getFloat(9));
+                estimate.setCarbonMt(cursor.getFloat(10));
                 estimateList.add(estimate);
             } while (cursor.moveToNext());
         }
@@ -74,19 +74,4 @@ public class EstimateDAO {
         db.delete("carbon_estimations", "id = ?", new String[]{estimate.getId()});
         db.close();
     }
-    /*
-        EstimateDatabaseHelper dbHelper = new EstimateDatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        EstimateDAO dao = new EstimateDAO(this);
-        CarbonEstimation ca = new CarbonEstimation();
-        ca.setCarbonKg(1);
-        ca.setCarbonLb(3);
-        ca.setCarbonMt(0.234);
-        ca.setDistance(2000);
-        ca.setDistanceUnit(DistanceUnit.KILOMETERS);
-        ca.setEstimationDate("BLABLADATE");
-        ca.setWeightUnit(WeightUnit.GRAMS);
-        ca.setTransport(Transport.PLANE);
-        dao.insertEstimate(ca);
-     */
 }

@@ -13,7 +13,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.shouldishipbis.model.apiCalls.CarbonEstimation;
+
 import org.w3c.dom.Text;
+
+import java.util.Locale;
 
 public class CompareActivity extends AppCompatActivity {
 
@@ -50,7 +54,7 @@ public class CompareActivity extends AppCompatActivity {
                 initializePortrait();
                 setTextPortrait(historicData);
             } else {
-                // si erreur
+                throw new RuntimeException("onactivity result in compare");
             }
         }
     }
@@ -87,24 +91,28 @@ public class CompareActivity extends AppCompatActivity {
     }
 
     private void setTextPortrait(Intent data){
-        titreShipping1.setText(data.getStringExtra("titreShipping1"));
-        valCarbone1.setText(data.getStringExtra("valCarbone1"));
-        valDate1.setText(data.getStringExtra("valDate1"));
-        titreShipping2.setText(data.getStringExtra("titreShipping2"));
-        valCarbone2.setText(data.getStringExtra("valCarbone2"));
-        valDate2.setText(data.getStringExtra("valDate2"));
+        CarbonEstimation est1 = (CarbonEstimation) data.getSerializableExtra("estimation1");
+        CarbonEstimation est2 = (CarbonEstimation) data.getSerializableExtra("estimation2");
+        titreShipping1.setText(est1.getName());
+        titreShipping2.setText(est2.getName());
+        valCarbone1.setText(String.format(Locale.getDefault(), " %.2f kg", est1.getCarbonKg()) );
+        valCarbone2.setText(String.format(Locale.getDefault(), " %.2f kg", est2.getCarbonKg()) );
+        valDate1.setText(est1.getEstimationDate());
+        valDate2.setText(est2.getEstimationDate());
     }
 
     private void setTextLandscape(Intent data){
         setTextPortrait(data);
-        valPoids1.setText(data.getStringExtra("valPoids1"));
-        valPoids2.setText(data.getStringExtra("valPoids2"));
-        valDistance1.setText(data.getStringExtra("valDistance1"));
-        valDistance2.setText(data.getStringExtra("valDistance2"));
-        if(data.getStringExtra("valCarbone1").compareTo(data.getStringExtra("valCarbone2")) < 0) {
-            meilleurCompare.setText(getIntent().getStringExtra("titreShipping1"));
-        } else if(data.getStringExtra("valCarbone1").compareTo(data.getStringExtra("valCarbone2")) > 0){
-            meilleurCompare.setText(getIntent().getStringExtra("titreShipping2"));
+        CarbonEstimation est1 = (CarbonEstimation) data.getSerializableExtra("estimation1");
+        CarbonEstimation est2 = (CarbonEstimation) data.getSerializableExtra("estimation2");
+        valPoids1.setText(String.format(Locale.getDefault(), " %.2f %s", est1.getWeight(), est1.getWeightUnit().getSign()));
+        valPoids2.setText(String.format(Locale.getDefault(), " %.2f %s", est2.getWeight(), est2.getWeightUnit().getSign()));
+        valDistance1.setText(String.format(Locale.getDefault(), " %.2f %s", est1.getDistance(), est1.getDistanceUnit().getSign()));
+        valDistance2.setText(String.format(Locale.getDefault(), " %.2f %s", est2.getDistance(), est2.getDistanceUnit().getSign()));
+        if(est1.getCarbonKg() < est2.getCarbonKg()) {
+            meilleurCompare.setText(est1.getName());
+        } else if(est1.getCarbonKg() > est2.getCarbonKg()){
+            meilleurCompare.setText(est2.getName());
         } else {
             meilleurCompare.setText(R.string.egalite_compare);
         }

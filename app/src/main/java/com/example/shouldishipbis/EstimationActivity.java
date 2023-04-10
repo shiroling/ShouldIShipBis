@@ -46,14 +46,14 @@ public class EstimationActivity extends AppCompatActivity {
     }
 
     private void setEstimationInfo(CarbonEstimation ca) {
+        TextView transport = findViewById(R.id.textEmoji);
         TextView nom = findViewById(R.id.nom_estimation);
         TextView date = findViewById(R.id.text_date);
         TextView carbone = findViewById(R.id.text_carbone);
-        String dateStr = ca.getEstimationDate();
-        String carboneStr = ca.getCarbonKg()+ "kg";
+        transport.setText( getResources().getText(ca.getTransportEmojiId()));
         nom.setText(ca.getName());
-        date.setText(dateStr);
-        carbone.setText(carboneStr);
+        date.setText(ca.getEstimationDate());
+        carbone.setText(ca.getCarbonKg()+ "kg");
     }
 
     @Override

@@ -15,20 +15,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/landscape_mode_off"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="50px"
-            android:paddingBottom="30px">
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
 
             <TextView
                 android:id="@+id/nom_compare1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,12 +41,14 @@
                     android:id="@+id/compare_label_carbone1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/label_carbone" />
+                    android:text="@string/label_carbone"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/compare_carbone1"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -57,12 +61,14 @@
                     android:id="@+id/compare_label_date1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/label_date" />
+                    android:text="@string/label_date"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/compare_date1"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -72,13 +78,13 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="50px">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nom_compare2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,12 +95,14 @@
                     android:id="@+id/compare_label_carbone2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/label_carbone" />
+                    android:text="@string/label_carbone"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/compare_carbone2"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -107,12 +115,14 @@
                     android:id="@+id/compare_label_date2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/label_date" />
+                    android:text="@string/label_date"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/compare_date2"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
