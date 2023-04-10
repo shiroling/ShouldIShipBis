@@ -47,5 +47,7 @@
     <string name="landscape_mode_on">Well done !!</string>
     <string name="meilleur_compare">The best shipping is: </string>
     <string name="egalite_compare">DRAW</string>
+    <string name="estimationActivityOnResultFailureText">Estimation failed, try again later !</string>
+    <string name="totalEstimationLabel">"Total carbon cost : "</string>
 
 </resources>

@@ -22,6 +22,7 @@ public class CarbonEstimationAdapter extends ArrayAdapter<CarbonEstimation> {
         super(context, 0, estimations);
     }
 
+    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -34,12 +35,21 @@ public class CarbonEstimationAdapter extends ArrayAdapter<CarbonEstimation> {
         }
 
         // Lookup view for data population
-        TextView textViewDate = convertView.findViewById(R.id.textViewDate);
-        TextView textViewValue = convertView.findViewById(R.id.textViewValue);
-
-        // Populate the data into the template view using the data object
-        textViewDate.setText(estimation.getEstimationDate());
-        textViewValue.setText(String.format(Locale.getDefault(), "%.2f", estimation.getCarbonKg()));
+        TextView textEmoji = convertView.findViewById(R.id.textEmoji);
+        switch (estimation.getTransport()) {
+            case PLANE : { textEmoji.setText(R.string.planeEmoji);break;}
+            case SHIP  : { textEmoji.setText(R.string.boatEmoji);break;}
+            case TRUCK : { textEmoji.setText(R.string.truckEmoji);break;}
+            case TRAIN : { textEmoji.setText(R.string.trainEmoji);break;}
+        }
+        TextView textDate = convertView.findViewById(R.id.textDate);
+        textDate.setText(estimation.getEstimationDate());
+        TextView textMass = convertView.findViewById(R.id.textMass);
+        textMass.append(String.format(Locale.getDefault(), " %.2f %s", estimation.getWeight(), estimation.getWeightUnit().getSign()));
+        TextView textDistance = convertView.findViewById(R.id.textDistance);
+        textDistance.append(String.format(Locale.getDefault(), " %.2f %s", estimation.getDistance(), estimation.getDistanceUnit().getSign()));
+        TextView textCarbon = convertView.findViewById(R.id.textCarbon);
+        textCarbon.setText(String.format(Locale.getDefault(), "%.2f kg", estimation.getCarbonKg()));
 
         // Return the completed view to render on screen
         return convertView;

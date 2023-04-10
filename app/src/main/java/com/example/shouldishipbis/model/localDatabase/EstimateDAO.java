@@ -46,9 +46,10 @@ public class EstimateDAO {
         String selectQuery = "SELECT  * FROM carbon_estimations";
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-
+        int count = 0;
         if (cursor.moveToFirst()) {
             do {
+                count++;
                 CarbonEstimation estimate = new CarbonEstimation();
                 estimate.setId(cursor.getString(0));
                 estimate.setTransport(Transport.stringToTransport(cursor.getString(1)));

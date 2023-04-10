@@ -41,19 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button boutonHistorique = findViewById(R.id.BtnHistorique);
         boutonHistorique.setOnClickListener(v -> goToActivity(HistoricActivity.class));
-
-        // Create a new instance of CarbonEstimation
-        CarbonEstimation carbonEstimation = new CarbonEstimation();
-
-        // Call requestEstimation method
-        carbonEstimation.requestEstimation(
-                this,
-                Transport.SHIP,
-                100,
-                1000,
-                WeightUnit.KILOGRAMS,
-                DistanceUnit.KILOMETERS
-            );
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

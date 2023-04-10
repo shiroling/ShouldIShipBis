@@ -11,19 +11,22 @@
 - [ ] Indiquer les spécificités de l'IDE utilisé (Android Studio, par exemple) s'il y en a.
 	- [ ] Android studio
 	- [ ] Rien de spécial de mon coté
-
 ## Éléments obligatoirement présents :
 - [ ] 4 activités avec des liens entre elles ; au moins une avec retour de valeur (à préciser).
-	- [ ] FromActivity (appelé par EstimationsActivity, retourne l'estimation calculé par les infos du formulaire).
-	- [ ] EstimationActivity, affiche les informations sur une estiation donné ou lance le formulaire pour en créer une si aucune n'es fournie
+	- [x] FromActivity (appelé par EstimationsActivity, retourne l'estimation calculé par les infos du formulaire).
+	- [x] EstimationActivity, affiche les informations sur une estiation donné ou lance le formulaire pour en créer une si aucune n'es fournie
+	- [x] HistoricActivity, permet de visionner les estimations calculées.
 	- [ ] CompareActivity, permet de comparer deux activitées en entrée
-	- [ ] HistoricActivity, permet de visionner les estimations calculées.
+		- [x] layout et visuel
+ [ ] startForResult x2 pour les infos des deux estimations
 - [ ] 1 Toast utilisé minimum.
-- [ ] Layout Paysage/Portrait différents et appropriés pour au moins 1 activité
-	- [ ] Pour l'activité comparaison.
-- [ ] 2 langues (si changement de la langue du téléphone, changement de la langue dans l’application).
+- [x] Layout Paysage/Portrait différents et appropriés pour au moins 1 activité
+	- [x] Pour l'activité comparaison.
+- [x] 2 langues (si changement de la langue du téléphone, changement de la langue dans l’application).
 - [ ] Liste d’items avec personnalisation (adapter personnalisé).
-	- [ ] Historic, ça y est mais le visuel est moche.
+	- [x] Historic, 
+	- [x] personalisation
+	- [ ] visuel est pas moche.
 
 - [x] 1 menu avec au moins un item dans la barre d’action et un item minimum dans le menu surgissant.
 	- [x] Nom de l'apli, bouton quitter
