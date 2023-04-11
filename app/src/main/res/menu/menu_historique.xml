@@ -20,6 +20,6 @@
     <item
         android:id="@+id/menu_comparer"
         app:showAsAction="collapseActionView"
-        android:title="@string/bouton_main" />
+        android:title="@string/bouton_compare" />
 
 </menu>
