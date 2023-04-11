@@ -46,9 +46,15 @@ public class CompareActivity extends AppCompatActivity {
         historicData = data;
         if(requestCode == REQ_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                setContentView(R.layout.activity_compare);
-                initializePortrait();
-                setTextPortrait(historicData);
+                if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    setContentView(R.layout.activity_compare);
+                    initializeLandscape();
+                    setTextLandscape(historicData);
+                } else {
+                    setContentView(R.layout.activity_compare);
+                    initializePortrait();
+                    setTextPortrait(historicData);
+                }
             } else {
                 // si erreur
             }
