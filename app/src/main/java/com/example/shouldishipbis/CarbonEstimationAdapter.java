@@ -26,15 +26,12 @@ public class CarbonEstimationAdapter extends ArrayAdapter<CarbonEstimation> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        // Get the data item for this position
         CarbonEstimation estimation = getItem(position);
 
-        // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_carbon_estimation, parent, false);
         }
 
-        // Lookup view for data population
         TextView textEmoji = convertView.findViewById(R.id.textEmoji);
         switch (estimation.getTransport()) {
             case PLANE : { textEmoji.setText(R.string.planeEmoji);break;}
@@ -44,16 +41,15 @@ public class CarbonEstimationAdapter extends ArrayAdapter<CarbonEstimation> {
         }
         TextView textName = convertView.findViewById(R.id.textName);
         textName.setText(estimation.getName());
-        TextView textDate = convertView.findViewById(R.id.textName);
+        TextView textDate = convertView.findViewById(R.id.textDate);
         textDate.setText(estimation.getEstimationDate());
         TextView textMass = convertView.findViewById(R.id.textMass);
-        textMass.append(String.format(Locale.getDefault(), " %.2f %s", estimation.getWeight(), estimation.getWeightUnit().getSign()));
+        textMass.setText(String.format(Locale.getDefault(), " %.2f %s", estimation.getWeight(), estimation.getWeightUnit().getSign()));
         TextView textDistance = convertView.findViewById(R.id.textDistance);
-        textDistance.append(String.format(Locale.getDefault(), " %.2f %s", estimation.getDistance(), estimation.getDistanceUnit().getSign()));
+        textDistance.setText(String.format(Locale.getDefault(), " %.2f %s", estimation.getDistance(), estimation.getDistanceUnit().getSign()));
         TextView textCarbon = convertView.findViewById(R.id.textCarbon);
         textCarbon.setText(String.format(Locale.getDefault(), "%.2f kg", estimation.getCarbonKg()));
 
-        // Return the completed view to render on screen
         return convertView;
     }
 }

@@ -9,7 +9,7 @@ import android.util.Log;
 public class EstimateDatabaseHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "estimates.db";
-    public final String SQL_CREATE = "CREATE TABLE IF NOT EXISTS carbon_estimations (id TEXT PRIMARY KEY, transport TEXT, weight REAL, weight_unit TEXT, distance REAL, distance_unit TEXT, estimated_at TEXT, carbon_lb REAL, carbon_kg REAL, carbon_mt REAL);";
+    public final String SQL_CREATE = "CREATE TABLE IF NOT EXISTS carbon_estimations (id TEXT PRIMARY KEY, name TEXT, transport TEXT, weight REAL, weight_unit TEXT, distance REAL, distance_unit TEXT, estimated_at TEXT, carbon_lb REAL, carbon_kg REAL, carbon_mt REAL);";
     public final String SQL_DELETE = "DROP TABLE IF EXISTS carbon_estimations ;";
 
     public EstimateDatabaseHelper(Context context) {

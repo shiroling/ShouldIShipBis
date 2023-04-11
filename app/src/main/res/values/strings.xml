@@ -8,7 +8,7 @@
     <string name="title_activity_form">FormActivity</string>
     <string name="title_activity_result">ResultActivity</string>
     <string name="title_activity_compare">CompareActivity</string>
-    <string name="planeEmoji" translatable="false">&#9992;</string>
+    <string name="planeEmoji" translatable="false">&#128747;</string>
     <string name="boatEmoji" translatable="false">&#128674;</string>
     <string name="trainEmoji" translatable="false">&#128642;</string>
     <string name="truckEmoji" translatable="false">&#128666;</string>
@@ -53,7 +53,9 @@
     <string name="meilleur_compare">Le meilleur shipping est : </string>
     <string name="egalite_compare">EGALITE</string>
     <string name="estimationActivityOnResultFailureText">échec de l\'estimation, réessayez plus tard !</string>
-    <string name="totalEstimationLabel">"Coût total carbone : "</string>
+    <string name="totalEstimationLabel">"Coût carbone : "</string>
+    <string name="massLabel">Poid</string>
+    <string name="distanceLabel">Distance</string>
     <string name="label_nom">Nom</string>
     <string name="hint_nom">Nom de l\'estimation</string>
 </resources>

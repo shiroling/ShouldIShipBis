@@ -2,6 +2,7 @@ package com.example.shouldishipbis.model.apiCalls;
 
 import android.content.Context;
 
+import com.example.shouldishipbis.R;
 import com.example.shouldishipbis.model.localDatabase.EstimateDAO;
 
 import java.io.Serializable;
@@ -53,7 +54,7 @@ public class CarbonEstimation implements Serializable {
     }
 
     private String hashCode(CarbonEstimation carbonEstimation) {
-        return String.valueOf(Objects.hash(id, transport, weight, distance, weightUnit, distanceUnit, estimationDate, carbonLb, carbonKg, carbonMt));
+        return String.valueOf(Objects.hash(id, name, transport, weight, distance, weightUnit, distanceUnit, estimationDate, carbonLb, carbonKg, carbonMt));
     }
 
     public String getId() {
@@ -166,5 +167,15 @@ public class CarbonEstimation implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         CarbonEstimation that = (CarbonEstimation) o;
         return Double.compare(that.weight, weight) == 0 && Double.compare(that.distance, distance) == 0 && Double.compare(that.carbonLb, carbonLb) == 0 && Double.compare(that.carbonKg, carbonKg) == 0 && Double.compare(that.carbonMt, carbonMt) == 0 && id.equals(that.id) && transport == that.transport && weightUnit == that.weightUnit && distanceUnit == that.distanceUnit && estimationDate.equals(that.estimationDate);
+    }
+
+    public int getTransportEmojiId() {
+        switch (transport) {
+            case PLANE : { return R.string.planeEmoji; }
+            case SHIP  : { return R.string.boatEmoji;  }
+            case TRUCK : { return R.string.truckEmoji; }
+            case TRAIN : { return R.string.trainEmoji; }
+            default: throw new RuntimeException("Unexpected in switch");
+        }
     }
 }
