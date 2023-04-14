@@ -9,52 +9,66 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="16dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/label_nom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_nom" />
+            android:text="@string/label_nom"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/edit_text_nom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nom"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/label_poids"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_poids" />
+            android:text="@string/massLabel"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/edit_text_poids"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_poids"
-            android:inputType="number" />
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/label_distance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_distance" />
+            android:text="@string/distanceLabel"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/edit_text_distance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_distance"
-            android:inputType="number"/>
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/label_transport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_transport" />
+            android:text="@string/label_transport"
+            android:textSize="16sp" />
 
         <RadioGroup
             android:id="@+id/radio_transport"
@@ -65,25 +79,29 @@
                 android:id="@+id/radio_avion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/radio_avion" />
+                android:text="@string/radio_avion"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radio_camion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/radio_camion" />
+                android:text="@string/radio_camion"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radio_train"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/radio_train" />
+                android:text="@string/radio_train"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/radio_bateau"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/radio_bateau" />
+                android:text="@string/radio_bateau"
+                android:textSize="16sp" />
 
         </RadioGroup>
 

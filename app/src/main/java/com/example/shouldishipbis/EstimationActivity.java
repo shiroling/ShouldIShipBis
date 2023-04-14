@@ -50,10 +50,14 @@ public class EstimationActivity extends AppCompatActivity {
         TextView nom = findViewById(R.id.nom_estimation);
         TextView date = findViewById(R.id.text_date);
         TextView carbone = findViewById(R.id.text_carbone);
+        TextView mass = findViewById(R.id.text_masse);
+        TextView distance = findViewById(R.id.text_distance);
         transport.setText( getResources().getText(ca.getTransportEmojiId()));
         nom.setText(ca.getName());
         date.setText(ca.getEstimationDate());
         carbone.setText(ca.getCarbonKg()+ "kg");
+        mass.setText(" " +ca.getWeight()+ " " + ca.getWeightUnit().getSign());
+        distance.setText(" " +ca.getDistance()+ " " + ca.getDistanceUnit().getSign());
     }
 
     @Override

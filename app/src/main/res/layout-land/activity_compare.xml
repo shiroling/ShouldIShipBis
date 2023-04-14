@@ -48,7 +48,7 @@
                         android:id="@+id/compare_label_poids1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/label_poids"
+                        android:text="@string/massLabel"
                         android:textSize="14sp" />
 
                     <TextView
@@ -68,7 +68,7 @@
                         android:id="@+id/compare_label_distance1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/label_distance"
+                        android:text="@string/distanceLabel"
                         android:textSize="14sp" />
 
                     <TextView
@@ -145,7 +145,7 @@
                         android:id="@+id/compare_label_poids2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/label_poids"
+                        android:text="@string/massLabel"
                         android:textSize="14sp" />
 
                     <TextView
@@ -165,7 +165,7 @@
                         android:id="@+id/compare_label_distance2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/label_distance"
+                        android:text="@string/distanceLabel"
                         android:textSize="14sp" />
 
                     <TextView

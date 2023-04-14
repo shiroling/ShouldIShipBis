@@ -38,8 +38,8 @@
     <string name="titreAcceuil">Home</string>
 
     <!-- Historique -->
-    <string name="label_date">Estimation date: </string>
-    <string name="label_carbone">"Emission of carbone in kilograms: "</string>
+    <string name="label_date">Date : </string>
+    <string name="label_carbone">"Carbone cost (kg) : "</string>
     <string name="errorMessageHistoricLoad">Can\'t load historic</string>
     <string name="titreHistoriqueCompare1">1st shipping</string>
     <string name="titreHistoriqueCompare2">2nd shipping</string>
@@ -51,9 +51,9 @@
     <string name="egalite_compare">DRAW</string>
     <string name="estimationActivityOnResultFailureText">Estimation failed, try again later!</string>
     <string name="totalEstimationLabel">"Total carbon cost: "</string>
-    <string name="massLabel">Mass</string>
-    <string name="distanceLabel">Distance</string>
-    <string name="label_nom">Name</string>
-    <string name="hint_nom">Name of the estimation</string>
+    <string name="massLabel">Mass : </string>
+    <string name="distanceLabel">Distance : </string>
+    <string name="label_nom">Name : </string>
+    <string name="hint_nom">Name of the estimation : </string>
 
 </resources>

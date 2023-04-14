@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Debug;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;

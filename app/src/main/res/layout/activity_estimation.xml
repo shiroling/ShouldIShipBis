@@ -9,57 +9,117 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/nom_estimation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"/>
+        android:orientation="vertical"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="0"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
 
             <TextView
                 android:id="@+id/textEmoji"
                 android:layout_width="wrap_content"
 
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:paddingEnd="16dp"
                 android:textSize="48sp"
                 tools:ignore="RtlSymmetry" />
 
             <TextView
+                android:id="@+id/nom_estimation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
+
+            <TextView
                 android:id="@+id/label_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_date"/>
+                android:text="@string/label_date"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/text_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:id="@+id/labelDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/distanceLabel"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:id="@+id/labelMass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/massLabel"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_masse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
 
             <TextView
                 android:id="@+id/label_carbone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_carbone"/>
+                android:text="@string/label_carbone"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/text_carbone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
 
         </LinearLayout>
 

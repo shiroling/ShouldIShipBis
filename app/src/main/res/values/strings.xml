@@ -23,9 +23,7 @@
     <string name="menu_quitter">Quitter</string>
 
     <!-- Texte formulaire -->
-    <string name="label_poids">Poids : </string>
     <string name="hint_poids">Poids du paquet</string>
-    <string name="label_distance">Distance : </string>
     <string name="hint_distance">Distance à parcourir</string>
     <string name="label_transport">Transport</string>
     <string name="radio_train">Train</string>
@@ -41,8 +39,8 @@
     <string name="titreAcceuil">Acceuil</string>
 
     <!-- Historique -->
-    <string name="label_date">Date de l\'estimation : </string>
-    <string name="label_carbone">Masse (en kg) de carbone émis : </string>
+    <string name="label_date">Date : </string>
+    <string name="label_carbone">Masse (en kg) : </string>
     <string name="errorMessageHistoricLoad">Impossible de charger l\'historique</string>
     <string name="titreHistoriqueCompare1">1er shipping</string>
     <string name="titreHistoriqueCompare2">2eme shipping</string>
@@ -54,8 +52,8 @@
     <string name="egalite_compare">EGALITE</string>
     <string name="estimationActivityOnResultFailureText">échec de l\'estimation, réessayez plus tard !</string>
     <string name="totalEstimationLabel">"Coût carbone : "</string>
-    <string name="massLabel">Poid</string>
-    <string name="distanceLabel">Distance</string>
-    <string name="label_nom">Nom</string>
-    <string name="hint_nom">Nom de l\'estimation</string>
+    <string name="massLabel">Poid : </string>
+    <string name="distanceLabel">Distance : </string>
+    <string name="label_nom">Nom : </string>
+    <string name="hint_nom">Nom de l\'estimation : </string>
 </resources>
