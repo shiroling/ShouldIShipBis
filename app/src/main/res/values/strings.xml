@@ -35,8 +35,8 @@
     <!-- Titres -->
     <string name="titreHistoric">Historique</string>
     <string name="titreEstimation">Estimation</string>
-    <string name="titreComparer">Compater</string>
-    <string name="titreAcceuil">Acceuil</string>
+    <string name="titreComparer">Comparer</string>
+    <string name="titreAcceuil">Accueil</string>
 
     <!-- Historique -->
     <string name="label_date">Date : </string>
@@ -50,10 +50,10 @@
     <string name="landscape_mode_on">Bravoo !!</string>
     <string name="meilleur_compare">Le meilleur shipping est : </string>
     <string name="egalite_compare">EGALITE</string>
-    <string name="estimationActivityOnResultFailureText">échec de l\'estimation, réessayez plus tard !</string>
+    <string name="estimationActivityOnResultFailureText">Echec de l\'estimation, réessayez plus tard !</string>
     <string name="totalEstimationLabel">"Coût carbone : "</string>
-    <string name="massLabel">Poid : </string>
+    <string name="massLabel">Poids : </string>
     <string name="distanceLabel">Distance : </string>
     <string name="label_nom">Nom : </string>
-    <string name="hint_nom">Nom de l\'estimation : </string>
+    <string name="hint_nom">Nom de l\'estimation</string>
 </resources>
